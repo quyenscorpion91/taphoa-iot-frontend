@@ -1,0 +1,54 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Thông tin khách hàng
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-sm dynamic">
+                        <thead>
+                            <tr>
+                                <th>Tên</th>
+                                <th>Số đthoại</th>
+                                <th>Địa chỉ</th>
+                                <th>Tổng đơn</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of ItemList">
+                                <td data-label="Tên">{{item.name}}</td>
+                                <td data-label="SĐT">{{item.phone}}</td>
+                                <td data-label="Địa chỉ">{{item.addr}}</td>
+                                <td data-label="Tổng đơn">{{item.total}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="container-fluid">
+                        <div>
+                            <div class="float-left mt-3">
+                                <ul class="pagination">
+                                    <li (click)="onPageClick(Page - 1)" class="page-item"><a class="page-link">&lt;</a></li>
+
+                                    <li *ngFor="let page of PageArray" (click)="onPageClick(page)" class="page-item" [ngClass]="{active: page===Page}">
+                                        <a class="page-link">{{page}}</a>
+                                    </li>
+
+                                    <li (click)="onPageClick(Page+1)" class="page-item"><a class="page-link">&gt;</a></li>
+                                </ul>
+                            </div>
+                            <!-- <div class="float-right mt-3">
+                                <button type="button" (click)="onCreateButtonClick()" class="btn btn-primary px-4">Thêm mới</button>
+                            </div> -->
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+      </div>
+  
+  </div>
+  

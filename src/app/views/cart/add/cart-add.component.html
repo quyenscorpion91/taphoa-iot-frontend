@@ -1,0 +1,70 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Thông tin sản phẩm
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-sm dynamic">
+                        <thead>
+                            <tr>
+                                <th>Tên</th>
+                                <th>Còn lại</th>
+                                <th>Giá bán</th>
+                                <th>Số lượng</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of ItemList">
+                                <!-- <td>
+                                    <button type="button" (click)="onUserLinkClick(item.user)" class="btn btn-link px-0">{{userData.user}}</button>
+                                </td> -->
+                                <td data-label="Tên">{{item.name}}</td>
+                                <td data-label="Còn lại">{{item.remain}}</td>
+                                <td data-label="Giá bán">{{item.sale_price}}</td>
+
+                                <td data-label="Số lượng">
+                                    <input type="number" [attr.id]="item.id" autocomplete="0" style="width:50px" required>
+                                </td>
+
+                                <td>
+                                    <div class="row d-flex">
+                                        <div class="col text-center">
+                                            <button type="button" (click)="onItemAddClick(item)" class="btn btn-danger btn-block btn-sm">+Thêm vào</button>
+                                        </div>
+                                    </div>
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="container-fluid">
+                        <div>
+                            <div class="float-left mt-3">
+                                <ul class="pagination">
+                                    <li (click)="onPageClick(Page - 1)" class="page-item"><a class="page-link"> &lt; </a></li>
+
+                                    <li *ngFor="let page of PageArray" (click)="onPageClick(page)" class="page-item" [ngClass]="{active: page===Page}">
+                                        <a class="page-link">{{page}}</a>
+                                    </li>
+
+                                    <li (click)="onPageClick(Page + 1)" class="page-item"><a class="page-link"> &gt; </a></li>
+                                </ul>
+                            </div>
+                            <div class="float-right mt-3">
+                                <button type="button" (click)="onBackToCartClick()" class="btn btn-primary px-4">Xem giỏ hàng</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+      </div>
+  
+  </div>
+  

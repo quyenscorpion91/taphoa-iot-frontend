@@ -1,0 +1,49 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Thông tin giỏ hàng
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>Tên</th>
+                                <th>Số lượng</th>
+                                <th>Giá bán</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of ItemList">
+                                <!-- <td>
+                                    <button type="button" (click)="onUserLinkClick(item.user)" class="btn btn-link px-0">{{userData.user}}</button>
+                                </td> -->
+                                <td>{{item.name}}</td>
+                                <td>{{item.quantity}}</td>
+                                <td>{{item.sale_price}}</td>
+                                <td>{{item.sale_price * item.quantity}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="container-fluid">
+                        <div>
+                            <div class="float-right">
+                                <button type="button" (click)="onCheckoutButtonClick()" class="btn btn-primary px-4">Chốt</button>
+                            </div>
+                            <div class="float-left">
+                                <button type="button" (click)="onAddToCardButton()" class="btn btn-primary px-4">Chọn hàng</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+      </div>
+  
+  </div>
+  

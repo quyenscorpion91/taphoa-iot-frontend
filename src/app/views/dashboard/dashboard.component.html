@@ -1,0 +1,181 @@
+<div class="animated fadeIn">
+
+    <div class="row">
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-info">
+                <div class="card-body pb-0">
+                    <!-- <button type="button" class="btn btn-transparent p-0 float-right">
+                        <i class="icon-location-pin"></i>
+                    </button> -->
+                    <div class="text-value">{{TotalWait | number}}</div>
+                    <div class="mb-5">Tổng tiền hôm nay</div>
+                </div>
+                <!-- <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                    <canvas baseChart class="chart" [datasets]="lineChart2Data" [labels]="lineChart2Labels"
+                        [options]="lineChart2Options" [colors]="lineChart2Colours" [legend]="lineChart2Legend"
+                        [chartType]="lineChart2Type"></canvas>
+                </div> -->
+            </div>
+        </div>
+        <!--/.col-->
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-primary">
+                <div class="card-body pb-0">
+                    <!-- <div class="btn-group float-right" dropdown>
+                        <button type="button" class="btn btn-transparent dropdown-toggle p-0" dropdownToggle>
+                            <i class="icon-settings"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div> -->
+                    <div class="text-value">{{ProfitWait | number}}</div>
+                    <div class="mb-5">Tổng lợi nhuận hôm nay</div>
+                </div>
+                <!-- <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                    <canvas baseChart class="chart" [datasets]="lineChart1Data" [labels]="lineChart1Labels"
+                        [options]="lineChart1Options" [colors]="lineChart1Colours" [legend]="lineChart1Legend"
+                        [chartType]="lineChart1Type"></canvas>
+                </div> -->
+            </div>
+        </div>
+        <!--/.col-->
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-warning">
+                <div class="card-body pb-0">
+                    <!-- <div class="btn-group float-right" dropdown>
+                        <button type="button" class="btn btn-transparent dropdown-toggle p-0" dropdownToggle>
+                            <i class="icon-settings"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div> -->
+                    <div class="text-value">{{TotalFinish | number}}</div>
+                    <div class="mb-5">Tổng tiền đã thanh toán hôm nay</div>
+                </div>
+                <!-- <div class="chart-wrapper mt-3" style="height:70px;">
+                    <canvas baseChart class="chart" [datasets]="lineChart3Data" [labels]="lineChart3Labels"
+                        [options]="lineChart3Options" [colors]="lineChart3Colours" [legend]="lineChart3Legend"
+                        [chartType]="lineChart3Type"></canvas>
+                </div> -->
+            </div>
+        </div>
+        <!--/.col-->
+        <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-danger">
+                <div class="card-body pb-0">
+                    <!-- <div class="btn-group float-right" dropdown>
+                        <button type="button" class="btn btn-transparent dropdown-toggle p-0" dropdownToggle>
+                            <i class="icon-settings"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div> -->
+                    <div class="text-value">{{ProfitFinish | number}}</div>
+                    <div class="mb-5">Tổng lợi nhuận đã thanh toán hôm nay</div>
+                </div>
+                <!-- <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                    <canvas baseChart class="chart" [datasets]="barChart1Data" [labels]="barChart1Labels"
+                        [options]="barChart1Options" [colors]="barChart1Colours" [legend]="barChart1Legend"
+                        [chartType]="barChart1Type"></canvas>
+                </div> -->
+            </div>
+        </div>
+        <!--/.col-->
+    </div>
+    <!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fa fa-align-justify"></i> Báo cáo
+                </div>
+                <div class="card-body">
+                    <form class="form-horizontal" #report="ngForm" id="report">
+                        <div class="col-md-9">
+                            <label class="col-md-3 col-form-label">Từ ngày</label>
+                            <input class="form-control" id="from" name="from" type="date" placeholder="" required ngModel>
+                        </div>
+                        <div class="col-md-9">
+                            <label class="col-md-3 col-form-label">Đến ngày</label>
+                            <input class="form-control" id="to" name="to" type="date" placeholder="" required ngModel>
+                        </div>
+                        <div class="col-md-9 mt-3">
+                            <div class="btn-group col-6 pr-0" dropdown>
+                                <button dropdownToggle type="button" class="btn btn-primary btn-block btn-sm dropdown-toggle">
+                                    Báo cáo <span class="caret"></span>
+                                </button>
+                                <ul *dropdownMenu class="dropdown-menu" role="menu">
+                                    <li role="menuitem"><a class="dropdown-item" (click)="onReportClick(report.value, report.valid, 255)">Tất cả</a></li>
+                                    <li role="menuitem"><a class="dropdown-item" (click)="onReportClick(report.value, report.valid, 3)">Hoàn thành</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                    <table class="table table-bordered table-striped table-sm dynamic mt-3">
+                        <thead>
+                            <tr>
+                                <th>Tên</th>
+                                <th>Giá bán</th>
+                                <th>Số lượng</th>
+                                <th>Tổng đơn</th>
+                                <th>Lợi nhuận</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of ItemList">
+                                <td data-label="Tên">{{item.name}}</td>
+                                <td data-label="Giá bán">{{item.sale_price}}</td>
+                                <td data-label="Số lượng">{{item.sale_total}}</td>
+                                <td data-label="Tổng đơn">{{item.total}}</td>
+                                <td data-label="Lợi nhuận">{{item.profit}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="col-md-9">
+                        <label class="col-md-3 col-form-label">Tổng tiền</label>
+                        <input class="form-control" id="to" name="to" type="text" placeholder="{{Total}}" disabled>
+                    </div>
+                    <div class="col-md-9">
+                        <label class="col-md-3 col-form-label">Lợi nhuận</label>
+                        <input class="form-control" id="to" name="to" type="text" placeholder="{{Profit}}" disabled>
+                    </div>
+
+                    <!-- <div class="container-fluid">
+                        <div>
+                            <div class="float-left">
+                                <ul class="pagination">
+                                    <li (click)="onPageClick(Page - 1)" class="page-item"><a class="page-link">&lt;</a></li>
+
+                                    <li *ngFor="let page of PageArray" (click)="onPageClick(page)" class="page-item" [ngClass]="{active: page===Page}">
+                                        <a class="page-link">{{page}}</a>
+                                    </li>
+
+                                    <li (click)="onPageClick(Page+1)" class="page-item"><a class="page-link">&gt;</a></li>
+                                </ul>
+                            </div>
+                            <div class="float-right">
+                                <button type="button" (click)="onCreateButtonClick()" class="btn btn-primary px-4">Thêm mới</button>
+                            </div>
+                        </div>
+                    </div> -->
+                    
+                </div>
+            </div>
+        </div>
+        <!--/.col-->
+      </div>
+  
+  </div>
+  
